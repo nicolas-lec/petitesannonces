@@ -43,7 +43,7 @@ Route::get('annonce/edit/{id}', 'AnnonceController@edit')->name('edit');
 //Route POST pour valider l'update de l'annonce
 Route::post('annonce/edit/{id}', 'AnnonceController@update')->name('update');
 
-
+Route::get('users/admin', 'AdminController@admin')->middleware('admin');
 
 
 

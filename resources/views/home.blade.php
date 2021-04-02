@@ -3,10 +3,15 @@
 @section('title', 'Acceuil')
 
 @section('content')
+    @if(auth()->user()->is_admin == 1)
+        <h1>Bienvenue {{ Auth::user()->name }}</h1>
     <div class="container-fluid">
         <div class="row justify-content-center">
             <article class="card col-6">
+
+
                 @foreach($annonces as $annonce)
+
 
                     <header class="card-header">
                         <h1>{{ $annonce->title }}</h1>
@@ -41,6 +46,9 @@
                     </form>
                 @endforeach
             </article>
+            @else
+                <div class="panel-heading">Vous êtes connecté comme Utilisateur normal</div>
+            @endif
 
         </div>
     </div>
