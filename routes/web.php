@@ -43,11 +43,20 @@ Route::get('annonce/edit/{id}', 'AnnonceController@edit')->name('edit');
 //Route POST pour valider l'update de l'annonce
 Route::post('annonce/edit/{id}', 'AnnonceController@update')->name('update');
 
+
+//USERS
+
 Route::get('users/admin', 'UserController@admin')->middleware('admin');
 
 Route::get('update/', 'UserController@updateUser')->name('updateUser');
 
-Route::patch('update/{id}/update',  'UserController@updateU')->name(('UpdateU'));
+Route::patch('update/{id}/',  'UserController@updateU')->name(('UpdateU'));
+
+Route::get('update/show/{id}', 'UserController@showU')->name('showU');
+
+Route::delete('update/delete/{id}', 'UserController@destroy')->name('destroyU');
+
+
 
 
 

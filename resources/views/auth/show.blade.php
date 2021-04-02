@@ -1,22 +1,31 @@
 @extends('layouts.app')
-@section('title', 'Edition utilisateur')
+@section('title', 'Affichage utilisateur')
 @section('content')
 
 
 
-    <form method="POST" action="{{ route('UpdateU', $user) }}">
-    @csrf
-        {{ method_field('patch') }}
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <article class="card">
 
-        <label>Nom</label>
-        <input type="text" class="form-control" name="name" value="{{ $user->name }}">
-        <label>Email</label>
-        <input type="text" class="form-control" name="email" value="{{ $user->email }}">
 
-        <input type="submit" class="btn btn-primary">
+                    <div class="card-body">
+                        <br>
+                        <p>Name : {{ $users->name }}</p>
+                        <br>
+                        <p>Email : {{ $users->email }}</p>
 
-    </form>
+                    </div>
+                    <a class="btn btn-dark  float-right" href="{{ route('updateUser') }}">Modifier</a>
 
+
+                    <form action="{{ url('update/destroy'.$users->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Supprimer</button>
+                    </form>
+                </article>
 
 
 

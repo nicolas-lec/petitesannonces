@@ -15,6 +15,11 @@
 
         <input type="submit" class="btn btn-primary">
 
+        <a class="btn btn-dark  float-right" href="{{ url ('update/show/'.$user->id) }}">Afficher</a>
+
+
+
+
     </form>
 
 

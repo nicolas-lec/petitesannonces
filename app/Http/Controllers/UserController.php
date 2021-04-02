@@ -19,10 +19,16 @@ class UserController extends Controller
         $user = Auth::user();
 
     return view('auth.update', compact('user'));
-
-
     }
 
+    public function showU ($id){
+
+        $users = User::findOrFail($id);
+
+
+        return view('auth.show', compact('users'));
+
+    }
 
     //MàJ d'un profil
     public function updateU(Request $request, $id)
@@ -35,6 +41,14 @@ class UserController extends Controller
         $user->password = bcrypt(request('password'));
         $user->save();
 
+        return redirect()->route('home');
+    }
+
+    //Supprime un user
+    public function destroy($id)
+    {
+        $users = User::findOrFail($id);
+        $users->delete();
         return redirect()->route('home');
     }
 
