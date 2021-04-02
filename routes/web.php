@@ -45,6 +45,9 @@ Route::post('annonce/edit/{id}', 'AnnonceController@update')->name('update');
 
 Route::get('users/admin', 'AdminController@admin')->middleware('admin');
 
+Route::get('update/', 'AdminController@updateUser')->name('updateUser');
+
+Route::patch('update/{id}/update',  'AdminController@updateU')->name(('UpdateU'));
 
 
 
